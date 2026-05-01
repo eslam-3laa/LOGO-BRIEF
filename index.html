@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Logo Brief</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;700&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+
+  <!-- STEP INDICATOR -->
+  <div class="step-indicator" id="stepIndicator">
+    <div class="step-dot active" data-step="1">1</div>
+    <div class="step-line"></div>
+    <div class="step-dot" data-step="2">2</div>
+    <div class="step-line"></div>
+    <div class="step-dot" data-step="3">3</div>
+    <div class="step-line"></div>
+    <div class="step-dot" data-step="4">4</div>
+  </div>
+
+  <!-- PAGE 1: HERO -->
+  <section class="page active" id="page1">
+    <div class="hero-sidebar">
+      <div class="sidebar-icon">
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="12" r="4" stroke="#D4A017" stroke-width="2"/>
+          <circle cx="8" cy="30" r="4" stroke="#D4A017" stroke-width="2"/>
+          <circle cx="32" cy="30" r="4" stroke="#D4A017" stroke-width="2"/>
+          <line x1="20" y1="16" x2="8" y2="26" stroke="#D4A017" stroke-width="2"/>
+          <line x1="20" y1="16" x2="32" y2="26" stroke="#D4A017" stroke-width="2"/>
+          <line x1="8" y1="30" x2="32" y2="30" stroke="#D4A017" stroke-width="2"/>
+        </svg>
+      </div>
+      <span class="sidebar-text">Build Your Identity</span>
+    </div>
+
+    <div class="hero-card">
+      <div class="hero-content">
+        <div class="hero-tag">DESIGN QUESTIONNAIRE</div>
+        <h1 class="hero-title">
+          <span class="title-logo">LOGO</span>
+          <span class="title-brief">BRIEF</span>
+        </h1>
+        <p class="hero-subtitle">Complete this brief to help us craft the perfect logo for your brand.</p>
+        <button class="btn-start" onclick="goToPage(2)">
+          <span>Start</span>
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12H19M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <div class="hero-arrow" onclick="goToPage(2)">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="#D4A017" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+
+    <div class="hero-bg-text">LOGO</div>
+  </section>
+
+  <!-- PAGE 2: CLIENT + PROJECT INFO -->
+  <section class="page" id="page2">
+    <div class="page-layout">
+      <div class="page-left">
+        <div class="section-block">
+          <h2 class="section-title">Client <span>Information</span></h2>
+          <div class="form-grid two-col">
+            <div class="field-group">
+              <label>Client Name</label>
+              <input type="text" id="clientName" placeholder="Your full name" required />
+            </div>
+            <div class="field-group">
+              <label>Website</label>
+              <input type="text" id="website" placeholder="www.example.com" />
+            </div>
+            <div class="field-group">
+              <label>Phone No.</label>
+              <input type="tel" id="phone" placeholder="+1 000 000 0000" required />
+            </div>
+            <div class="field-group">
+              <label>Email</label>
+              <input type="email" id="email" placeholder="you@email.com" required />
+            </div>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h2 class="section-title">Project <span>Details</span></h2>
+          <div class="form-grid one-col">
+            <div class="field-group">
+              <label>Project Name</label>
+              <input type="text" id="projectName" placeholder="Enter project name" required />
+            </div>
+            <div class="field-group">
+              <label>Project Type</label>
+              <select id="projectType" required>
+                <option value="" disabled selected>Select project type</option>
+                <option>Product branding</option>
+                <option>Personal branding</option>
+                <option>Corporate branding</option>
+                <option>Retail branding</option>
+                <option>Geographical branding</option>
+                <option>Service branding</option>
+                <option>Online branding</option>
+                <option>Offline branding</option>
+                <option>Co-branding</option>
+              </select>
+            </div>
+
+            <div class="field-group">
+              <label>Target Audience</label>
+              <div class="checkbox-row">
+                <label class="check-item"><input type="checkbox" name="audience" value="Children" /><span class="checkmark"></span>Children</label>
+                <label class="check-item"><input type="checkbox" name="audience" value="Young" /><span class="checkmark"></span>Young</label>
+                <label class="check-item"><input type="checkbox" name="audience" value="Men" /><span class="checkmark"></span>Men</label>
+                <label class="check-item"><input type="checkbox" name="audience" value="Women" /><span class="checkmark"></span>Women</label>
+                <label class="check-item"><input type="checkbox" name="audience" value="Everyone" /><span class="checkmark"></span>Everyone</label>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label>Favorite Colours</label>
+              <input type="text" id="colours" placeholder="e.g. Gold, Black, Navy Blue" />
+            </div>
+
+            <div class="field-group">
+              <label>Logo Type</label>
+              <div class="radio-row">
+                <label class="radio-item"><input type="radio" name="logoType" value="Icon Logo" /><span class="radiomark"></span>Icon Logo</label>
+                <label class="radio-item"><input type="radio" name="logoType" value="Letter Logo" /><span class="radiomark"></span>Letter Logo</label>
+                <label class="radio-item"><input type="radio" name="logoType" value="Calligraphy Logo" /><span class="radiomark"></span>Calligraphy Logo</label>
+                <label class="radio-item"><input type="radio" name="logoType" value="Character Logo" /><span class="radiomark"></span>Character Logo</label>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label>About Project</label>
+              <textarea id="aboutProject" rows="4" placeholder="Describe your project, goals, and vision..."></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-buttons">
+          <button class="btn-back" onclick="goToPage(1)">← Back</button>
+          <button class="btn-next" onclick="validateAndNext(2, 3)">Next →</button>
+        </div>
+      </div>
+
+      <div class="page-right decorative-right">
+        <div class="deco-number">02</div>
+        <div class="deco-label">Client & Project</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE 3: UPLOADS + APPLICATIONS -->
+  <section class="page" id="page3">
+    <div class="page-layout">
+      <div class="page-left">
+
+        <div class="section-block">
+          <h2 class="section-title">Upload <span>References</span></h2>
+          <p class="section-sub">Upload any logos you liked or your old logo</p>
+          <div class="upload-grid" id="uploadGrid">
+            <div class="upload-box" data-index="0" onclick="triggerUpload(0)">
+              <input type="file" accept="image/*" onchange="handleUpload(this, 0)" style="display:none" />
+              <div class="upload-placeholder">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>Upload</span>
+              </div>
+              <img class="upload-preview" src="" alt="" style="display:none" />
+              <button class="upload-remove" onclick="removeUpload(event, 0)" style="display:none">✕</button>
+            </div>
+            <div class="upload-box" data-index="1" onclick="triggerUpload(1)">
+              <input type="file" accept="image/*" onchange="handleUpload(this, 1)" style="display:none" />
+              <div class="upload-placeholder">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>Upload</span>
+              </div>
+              <img class="upload-preview" src="" alt="" style="display:none" />
+              <button class="upload-remove" onclick="removeUpload(event, 1)" style="display:none">✕</button>
+            </div>
+            <div class="upload-box" data-index="2" onclick="triggerUpload(2)">
+              <input type="file" accept="image/*" onchange="handleUpload(this, 2)" style="display:none" />
+              <div class="upload-placeholder">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>Upload</span>
+              </div>
+              <img class="upload-preview" src="" alt="" style="display:none" />
+              <button class="upload-remove" onclick="removeUpload(event, 2)" style="display:none">✕</button>
+            </div>
+            <div class="upload-box" data-index="3" onclick="triggerUpload(3)">
+              <input type="file" accept="image/*" onchange="handleUpload(this, 3)" style="display:none" />
+              <div class="upload-placeholder">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>Upload</span>
+              </div>
+              <img class="upload-preview" src="" alt="" style="display:none" />
+              <button class="upload-remove" onclick="removeUpload(event, 3)" style="display:none">✕</button>
+            </div>
+            <div class="upload-box" data-index="4" onclick="triggerUpload(4)">
+              <input type="file" accept="image/*" onchange="handleUpload(this, 4)" style="display:none" />
+              <div class="upload-placeholder">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>Upload</span>
+              </div>
+              <img class="upload-preview" src="" alt="" style="display:none" />
+              <button class="upload-remove" onclick="removeUpload(event, 4)" style="display:none">✕</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="two-col-grid">
+          <div class="section-block">
+            <h2 class="section-title">Logo <span>Applications</span></h2>
+            <div class="checkbox-list">
+              <label class="check-item-row"><input type="checkbox" name="apps" value="Business Card" /><span class="checkmark"></span>Business Card</label>
+              <label class="check-item-row"><input type="checkbox" name="apps" value="Letterhead" /><span class="checkmark"></span>Letterhead</label>
+              <label class="check-item-row"><input type="checkbox" name="apps" value="Envelope" /><span class="checkmark"></span>Envelope</label>
+              <label class="check-item-row"><input type="checkbox" name="apps" value="Folder" /><span class="checkmark"></span>Folder</label>
+              <label class="check-item-row"><input type="checkbox" name="apps" value="Roll Up" /><span class="checkmark"></span>Roll Up</label>
+              <label class="check-item-row"><input type="checkbox" name="apps" value="Social Media" /><span class="checkmark"></span>Social Media</label>
+            </div>
+          </div>
+
+          <div class="section-block">
+            <h2 class="section-title">Final <span>Information</span></h2>
+            <div class="field-group">
+              <label>Final Deadline</label>
+              <input type="date" id="deadline" required />
+            </div>
+            <div class="field-group">
+              <label>Project Budget</label>
+              <div class="radio-list">
+                <label class="radio-item-row"><input type="radio" name="budget" value="$100–$250" /><span class="radiomark"></span>$100 – $250</label>
+                <label class="radio-item-row"><input type="radio" name="budget" value="$250–$500" /><span class="radiomark"></span>$250 – $500</label>
+                <label class="radio-item-row"><input type="radio" name="budget" value="$500–$700" /><span class="radiomark"></span>$500 – $700</label>
+                <label class="radio-item-row"><input type="radio" name="budget" value="$700–$1000" /><span class="radiomark"></span>$700 – $1000</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-buttons">
+          <button class="btn-back" onclick="goToPage(2)">← Back</button>
+          <button class="btn-next" onclick="validateAndNext(3, 4)">Next →</button>
+        </div>
+      </div>
+
+      <div class="page-right decorative-right">
+        <div class="deco-number">03</div>
+        <div class="deco-label">References & Details</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE 4: FINAL -->
+  <section class="page" id="page4">
+    <div class="final-layout">
+      <div class="final-sidebar">
+        <div class="final-sidebar-inner">
+          <span class="final-sidebar-text">THANK YOU</span>
+        </div>
+      </div>
+
+      <div class="final-content">
+        <div class="final-summary" id="finalSummary">
+          <h2 class="summary-title">Brief <span>Summary</span></h2>
+          <div class="summary-grid" id="summaryData"></div>
+        </div>
+
+        <div class="final-actions">
+          <button class="btn-print" onclick="window.print()">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6v-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            PRINT
+          </button>
+          <button class="btn-send" onclick="generatePDF()">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            SEND / PDF
+          </button>
+        </div>
+
+        <div class="nav-buttons">
+          <button class="btn-back" onclick="goToPage(3)">← Back</button>
+        </div>
+      </div>
+
+      <div class="final-deco">
+        <div class="deco-circle"></div>
+        <div class="deco-number">04</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
